@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNDggNDgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJHZW9tZWRpcSI+CiAgPHBhdGggZD0iTTI0IDMgNDEuMSAxM3YyMEwyNCA0MyA2LjkgMzNWMTNaIiBmaWxsPSJub25lIiBzdHJva2U9IiMwZDZlNjMiIHN0cm9rZS13aWR0aD0iMi40IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CiAgPHBhdGggZD0iTTI0IDE0YTEwIDEwIDAgMSAwIDkuNCAxMy40SDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMwZDZlNjMiIHN0cm9rZS13aWR0aD0iMi40IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9zdmc+Cg==">
-{ICON}
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Geomediq — Lifesciences & Pharma Supply Chain | Jaipur, India</title>
@@ -211,7 +210,7 @@ section{padding-block:clamp(3.5rem,7vw,6rem)}
       <a href="#group">The Group</a>
       <a class="btn btn-primary nav-cta" href="#contact">Contact</a>
     </nav>
-    <a class="nav-mob" href="mailto:geomediq@gmail.com">Contact →</a>
+    <a class="nav-mob" href="#contact">Contact →</a>
   </div>
 </header>
 
@@ -304,10 +303,20 @@ section{padding-block:clamp(3.5rem,7vw,6rem)}
       <p class="eyebrow">Talk to us</p>
       <h2 style="font-size:clamp(1.8rem,3.4vw,2.6rem);margin:.5rem 0 .8rem">Tell us what you're moving or making.</h2>
       <p class="lead">Whether you need a formulation developed or pallets stored at 2–8°C, start with a conversation. We'll point you to the right division.</p>
-      <div style="display:flex;gap:.9rem;flex-wrap:wrap;margin-top:1.6rem">
-        <a class="btn btn-primary" href="mailto:geomediq@gmail.com">Email the group <span class="arrow">→</span></a>
-        <a class="btn btn-ghost" href="tel:+918829933770">+91 88299 33770</a>
-      </div>
+      <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" style="margin-top:1.6rem;display:grid;gap:.8rem;max-width:30rem">
+        <input type="hidden" name="access_key" value="e7060d7b-c148-4753-b466-bde56b023710">
+        <input type="hidden" name="subject" value="New enquiry from geomediq.com">
+        <input type="hidden" name="from_name" value="Geomediq Website">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+        <input name="name" required placeholder="Your name" style="padding:.8rem 1rem;border:1px solid var(--line);border-radius:10px;background:#fff;font:inherit;color:var(--ink)">
+        <input type="email" name="email" required placeholder="Your email" style="padding:.8rem 1rem;border:1px solid var(--line);border-radius:10px;background:#fff;font:inherit;color:var(--ink)">
+        <textarea name="message" required rows="4" placeholder="What are you moving or making?" style="padding:.8rem 1rem;border:1px solid var(--line);border-radius:10px;background:#fff;font:inherit;color:var(--ink);resize:vertical"></textarea>
+        <div style="display:flex;gap:.9rem;flex-wrap:wrap;align-items:center">
+          <button type="submit" class="btn btn-primary">Send message <span class="arrow">→</span></button>
+          <a class="btn btn-ghost" href="tel:+918829933770">+91 88299 33770</a>
+        </div>
+        <p id="formStatus" role="status" aria-live="polite" style="margin:0;font-size:.92rem;color:var(--ink-2)"></p>
+      </form>
     </div>
     <div style="border:1px solid var(--line);border-radius:var(--r);padding:1.8rem;background:var(--paper-2)">
       <h4 style="font-family:var(--display);margin-bottom:.8rem">Geomediq Lifesciences</h4>
@@ -347,5 +356,36 @@ section{padding-block:clamp(3.5rem,7vw,6rem)}
   </div>
 </footer>
 
+<script>
+(function () {
+  var form = document.getElementById('contactForm');
+  if (!form) return;
+  var status = document.getElementById('formStatus');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var btn = form.querySelector('button[type="submit"]');
+    status.style.color = 'var(--ink-2)';
+    status.textContent = 'Sending…';
+    btn.disabled = true;
+    fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } })
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        if (data.success) {
+          form.reset();
+          status.style.color = 'var(--teal)';
+          status.textContent = 'Thanks — your message is on its way. We’ll be in touch shortly.';
+        } else {
+          status.style.color = '#b00020';
+          status.textContent = data.message || 'Something went wrong. Please email geomediq@gmail.com directly.';
+        }
+      })
+      .catch(function () {
+        status.style.color = '#b00020';
+        status.textContent = 'Network error. Please email geomediq@gmail.com directly.';
+      })
+      .finally(function () { btn.disabled = false; });
+  });
+})();
+</script>
 </body>
 </html>
