@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Geomediq — Lifesciences & Pharma Supply Chain | Jaipur, India</title>
+<meta name="description" content="Geomediq is a Jaipur-based life-sciences group: FSSAI-compliant nutraceutical development and export, and temperature-controlled pharma warehousing and distribution.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   Geomediq Group — shared stylesheet
+   Design language: clinical precision. Ink + paper base,
+   a deep medical teal as the group through-line, amber as the
+   warehousing division accent. Disciplined grid, confident
+   grotesque display, humanist body.
+   ============================================================ */
+
+:root{
+  --ink:#101a1e;          /* near-black, cool */
+  --ink-2:#33474e;        /* secondary text */
+  --mute:#6b7e85;         /* captions */
+  --paper:#ffffff;
+  --paper-2:#f4f7f7;      /* surfaces */
+  --line:#dfe7e7;         /* hairlines */
+
+  --teal:#0d6e63;         /* group primary */
+  --teal-deep:#08433d;    /* dark teal sections */
+  --teal-tint:#e3f0ee;    /* teal wash */
+
+  --amber:#bf6b1a;        /* warehousing division */
+  --amber-deep:#7a3f0c;
+  --amber-tint:#f6ecdf;
+
+  --maxw:1180px;
+  --gut:clamp(1.25rem,4vw,3rem);
+  --r:14px;
+
+  --display:"Space Grotesk","Helvetica Neue",Arial,sans-serif;
+  --body:"Inter","Helvetica Neue",Arial,sans-serif;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--body);
+  color:var(--ink);
+  background:var(--paper);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gut)}
+
+/* ---------- type ---------- */
+h1,h2,h3,h4{font-family:var(--display);font-weight:600;line-height:1.08;letter-spacing:-.02em}
+.eyebrow{
+  font-family:var(--display);
+  font-size:.74rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--teal);
+}
+.eyebrow.amber{color:var(--amber)}
+.lead{font-size:clamp(1.05rem,1.6vw,1.25rem);color:var(--ink-2);max-width:46ch}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;gap:.55rem;
+  font-family:var(--display);font-weight:500;font-size:.95rem;
+  padding:.85rem 1.4rem;border-radius:100px;
+  border:1.5px solid transparent;cursor:pointer;
+  transition:transform .18s ease, background .18s ease, color .18s ease, border-color .18s ease;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--teal);color:#fff}
+.btn-primary:hover{background:var(--teal-deep)}
+.btn-amber{background:var(--amber);color:#fff}
+.btn-amber:hover{background:var(--amber-deep)}
+.btn-ghost{border-color:var(--line);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--teal);color:var(--teal)}
+.btn-ghost.on-dark{border-color:rgba(255,255,255,.35);color:#fff}
+.btn-ghost.on-dark:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+.arrow{transition:transform .18s ease}
+.btn:hover .arrow{transform:translateX(3px)}
+
+/* ---------- top nav ---------- */
+.nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(255,255,255,.86);backdrop-filter:saturate(140%) blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:72px}
+.brand{display:flex;align-items:center;gap:.6rem;font-family:var(--display);font-weight:600;font-size:1.18rem;letter-spacing:-.02em}
+.brand .mark{width:30px;height:30px;flex:0 0 auto}
+.brand small{font-family:var(--body);font-weight:500;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);display:block;margin-top:1px}
+.nav-links{display:flex;align-items:center;gap:1.6rem;font-size:.95rem}
+.nav-links a{color:var(--ink-2);font-weight:500}
+.nav-links a:hover{color:var(--teal)}
+.nav-links a.nav-cta{font-family:var(--display);color:#fff}
+.nav-links a.nav-cta:hover{color:#fff}
+.nav-mob{display:none;font-family:var(--display);font-weight:500;font-size:.92rem;color:var(--teal)}
+.nav-toggle{display:none;background:none;border:0;cursor:pointer}
+
+/* ---------- footer ---------- */
+.foot{background:var(--teal-deep);color:#cfe4e0;margin-top:5rem}
+.foot a{color:#cfe4e0}
+.foot-in{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2.5rem;padding-block:3.5rem}
+.foot h4{color:#fff;font-size:1.05rem;margin-bottom:1rem;letter-spacing:.01em}
+.foot .brand{color:#fff}
+.foot .brand small{color:#8fbdb5}
+.foot ul{list-style:none;display:grid;gap:.5rem;font-size:.92rem}
+.foot-links a:hover{color:#fff}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.12);padding-block:1.4rem;font-size:.82rem;color:#8fbdb5;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem}
+.addr{font-size:.92rem;line-height:1.7}
+
+/* ---------- generic section ---------- */
+section{padding-block:clamp(3.5rem,7vw,6rem)}
+.section-head{max-width:54ch;margin-bottom:2.6rem}
+.section-head h2{font-size:clamp(1.8rem,3.4vw,2.6rem);margin:.5rem 0 .8rem}
+
+/* utility */
+.muted{color:var(--mute)}
+.center{text-align:center;margin-inline:auto}
+
+@media (max-width:820px){
+  .nav-links{display:none}
+  .nav-mob{display:inline-flex}
+  .foot-in{grid-template-columns:1fr;gap:1.8rem}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+
+</style>
+<style>
+/* ---- landing-specific ---- */
+.hero{position:relative;overflow:hidden;background:var(--teal-deep);color:#eaf4f1}
+.hero-grid{
+  position:absolute;inset:0;opacity:.5;
+  background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
+  background-size:54px 54px;
+  mask-image:radial-gradient(120% 90% at 70% 10%,#000 30%,transparent 75%);
+}
+.hero-in{position:relative;padding-block:clamp(4rem,9vw,7.5rem)}
+.hero .eyebrow{color:#5fbfb0}
+.hero h1{font-size:clamp(2.4rem,6vw,4.4rem);color:#fff;max-width:18ch;margin:1rem 0 1.4rem}
+.hero h1 em{font-style:normal;color:#7fd3c5}
+.hero .lead{color:#bfdcd6;max-width:54ch;font-size:clamp(1.05rem,1.7vw,1.3rem)}
+.hero-meta{display:flex;gap:2.4rem;flex-wrap:wrap;margin-top:2.6rem;padding-top:1.8rem;border-top:1px solid rgba(255,255,255,.14)}
+.hero-meta div{font-size:.9rem;color:#9fc6bf}
+.hero-meta strong{display:block;font-family:var(--display);font-size:1.5rem;color:#fff;font-weight:600;letter-spacing:-.01em}
+
+/* division split */
+.split{padding-block:clamp(3.5rem,7vw,6rem)}
+.split-head{display:flex;align-items:end;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:2.4rem}
+.split-head h2{font-size:clamp(1.6rem,3vw,2.3rem)}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.dcard{
+  position:relative;border:1px solid var(--line);border-radius:var(--r);
+  padding:2.2rem 2rem 2rem;background:var(--paper);overflow:hidden;
+  transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  display:flex;flex-direction:column;min-height:340px;
+}
+.dcard:hover{transform:translateY(-4px);box-shadow:0 18px 40px -24px rgba(8,67,61,.45)}
+.dcard.teal:hover{border-color:var(--teal)}
+.dcard.amber:hover{border-color:var(--amber)}
+.dcard .num{font-family:var(--display);font-size:.78rem;letter-spacing:.18em;color:var(--mute)}
+.dcard h3{font-size:1.7rem;margin:.7rem 0 .6rem}
+.dcard p{color:var(--ink-2);font-size:.98rem;margin-bottom:1.4rem}
+.dcard ul{list-style:none;display:grid;gap:.5rem;margin-bottom:1.8rem;font-size:.92rem;color:var(--ink-2)}
+.dcard li{display:flex;gap:.55rem;align-items:flex-start}
+.dcard li::before{content:"";width:7px;height:7px;border-radius:2px;margin-top:.5rem;flex:0 0 auto}
+.dcard.teal li::before{background:var(--teal)}
+.dcard.amber li::before{background:var(--amber)}
+.dcard .go{margin-top:auto}
+.dcard .corner{position:absolute;top:0;right:0;width:120px;height:120px;opacity:.08}
+.dcard.teal .corner{background:radial-gradient(circle at 100% 0,var(--teal),transparent 70%)}
+.dcard.amber .corner{background:radial-gradient(circle at 100% 0,var(--amber),transparent 70%)}
+
+/* shared backbone */
+.backbone{background:var(--paper-2);border-block:1px solid var(--line)}
+.bb-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+.bb-grid .item h4{font-size:1rem;margin-bottom:.4rem;color:var(--ink)}
+.bb-grid .item p{font-size:.9rem;color:var(--ink-2)}
+.bb-ic{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;background:var(--teal-tint);color:var(--teal);margin-bottom:.8rem;font-family:var(--display);font-weight:600}
+
+@media (max-width:820px){
+  .cards{grid-template-columns:1fr}
+  .bb-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:540px){.bb-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="index.html">
+      <img class="mark" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNDggNDgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJHZW9tZWRpcSI+CiAgPHBhdGggZD0iTTI0IDMgNDEuMSAxM3YyMEwyNCA0MyA2LjkgMzNWMTNaIiBmaWxsPSJub25lIiBzdHJva2U9IiMwZDZlNjMiIHN0cm9rZS13aWR0aD0iMi40IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CiAgPHBhdGggZD0iTTI0IDE0YTEwIDEwIDAgMSAwIDkuNCAxMy40SDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMwZDZlNjMiIHN0cm9rZS13aWR0aD0iMi40IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9zdmc+Cg==" alt="">
+      <span>Geomediq<small>Lifesciences Group</small></span>
+    </a>
+    <nav class="nav-links">
+      <a href="lifesciences.html">Lifesciences</a>
+      <a href="warehousing.html">Warehousing</a>
+      <a href="#group">The Group</a>
+      <a class="btn btn-primary nav-cta" href="#contact">Contact</a>
+    </nav>
+    <a class="nav-mob" href="mailto:geomediq@gmail.com">Contact →</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="wrap hero-in">
+    <p class="eyebrow">Jaipur, India · Two divisions, one standard</p>
+    <h1>Science, sourcing and <em>cold-chain</em> — under one roof.</h1>
+    <p class="lead">Geomediq develops and supplies export-ready nutraceuticals, and runs temperature-controlled warehousing and distribution for the pharma supply chain. WHO-GMP discipline runs through both.</p>
+    <div style="display:flex;gap:.9rem;flex-wrap:wrap;margin-top:2rem">
+      <a class="btn btn-primary" href="lifesciences.html">Explore Lifesciences <span class="arrow">→</span></a>
+      <a class="btn btn-ghost on-dark" href="warehousing.html">Explore Warehousing <span class="arrow">→</span></a>
+    </div>
+    <div class="hero-meta">
+      <div><strong>WHO-GMP</strong>certified partner facilities</div>
+      <div><strong>12+</strong>nutraceutical categories</div>
+      <div><strong>2–8°C</strong>cold-chain capable</div>
+      <div><strong>RIICO</strong>Sitapura, Jaipur base</div>
+    </div>
+  </div>
+</section>
+
+<!-- DIVISION SPLIT -->
+<section class="split" id="group">
+  <div class="wrap">
+    <div class="split-head">
+      <div>
+        <p class="eyebrow">Choose your division</p>
+        <h2>Two businesses. The same compliance backbone.</h2>
+      </div>
+      <p class="muted" style="max-width:34ch;font-size:.95rem">Pick the side built for you — product development, or storage and distribution.</p>
+    </div>
+
+    <div class="cards">
+      <!-- Lifesciences -->
+      <a class="dcard teal" href="lifesciences.html">
+        <span class="corner" aria-hidden="true"></span>
+        <span class="num">DIVISION 01 · LIFESCIENCES</span>
+        <h3>Nutraceutical development &amp; global supply</h3>
+        <p>From concept to finished product — custom formulations, certified manufacturing and export support for healthcare brands, distributors and importers.</p>
+        <ul>
+          <li>Product development &amp; custom formulations</li>
+          <li>WHO-GMP, ISO, HACCP certified manufacturing</li>
+          <li>Private &amp; white-label supply</li>
+          <li>Global export &amp; regulatory support</li>
+        </ul>
+        <span class="go btn btn-primary">Enter Lifesciences <span class="arrow">→</span></span>
+      </a>
+
+      <!-- Warehousing -->
+      <a class="dcard amber" href="warehousing.html">
+        <span class="corner" aria-hidden="true"></span>
+        <span class="num">DIVISION 02 · WAREHOUSING</span>
+        <h3>Temperature-controlled storage &amp; distribution</h3>
+        <p>Cold-chain and ambient warehousing with order fulfilment for pharma and nutraceutical inventory — built on the same quality discipline as our manufacturing.</p>
+        <ul>
+          <li>2–8°C cold-chain &amp; controlled-ambient storage</li>
+          <li>Storage, picking, packing &amp; dispatch</li>
+          <li>Batch &amp; expiry tracking, FEFO discipline</li>
+          <li>Distribution across Rajasthan &amp; pan-India</li>
+        </ul>
+        <span class="go btn btn-amber">Enter Warehousing <span class="arrow">→</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- SHARED BACKBONE -->
+<section class="backbone">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Why one group</p>
+      <h2 style="font-size:clamp(1.6rem,3vw,2.3rem)">The advantage of keeping it together</h2>
+      <p class="lead">Both divisions share an address, a quality culture and a regulatory team. That's why a brand we formulate for can also have its stock stored, batch-tracked and dispatched by the same group it already trusts.</p>
+    </div>
+    <div class="bb-grid">
+      <div class="item"><div class="bb-ic">✓</div><h4>One quality culture</h4><p>NABL-accredited testing, COA-backed batches and GMP partner facilities inform how we store as well as how we make.</p></div>
+      <div class="item"><div class="bb-ic">⌖</div><h4>One location</h4><p>RIICO Industrial Area, Sitapura — manufacturing coordination and warehousing operate from the same Jaipur base.</p></div>
+      <div class="item"><div class="bb-ic">⇄</div><h4>One supply chain</h4><p>Develop, manufacture, store and distribute without handing your inventory between unrelated vendors.</p></div>
+      <div class="item"><div class="bb-ic">◷</div><h4>One point of contact</h4><p>A single team for formulation, compliance and logistics — fewer handoffs, clearer accountability.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT STRIP -->
+<section id="contact">
+  <div class="wrap" style="display:grid;grid-template-columns:1.2fr 1fr;gap:2.5rem;align-items:center">
+    <div>
+      <p class="eyebrow">Talk to us</p>
+      <h2 style="font-size:clamp(1.8rem,3.4vw,2.6rem);margin:.5rem 0 .8rem">Tell us what you're moving or making.</h2>
+      <p class="lead">Whether you need a formulation developed or pallets stored at 2–8°C, start with a conversation. We'll point you to the right division.</p>
+      <div style="display:flex;gap:.9rem;flex-wrap:wrap;margin-top:1.6rem">
+        <a class="btn btn-primary" href="mailto:geomediq@gmail.com">Email the group <span class="arrow">→</span></a>
+        <a class="btn btn-ghost" href="tel:+918829933770">+91 88299 33770</a>
+      </div>
+    </div>
+    <div style="border:1px solid var(--line);border-radius:var(--r);padding:1.8rem;background:var(--paper-2)">
+      <h4 style="font-family:var(--display);margin-bottom:.8rem">Geomediq Lifesciences</h4>
+      <p class="addr muted">G-186E, Prahladpura,<br>RIICO Industrial Area, Sitapura,<br>Jaipur, Rajasthan, India</p>
+      <p class="addr" style="margin-top:1rem"><a href="mailto:geomediq@gmail.com" style="color:var(--teal);font-weight:600">geomediq@gmail.com</a><br><a href="tel:+918829933770" style="color:var(--teal);font-weight:600">+91 88299 33770</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div>
+      <a class="brand" href="index.html" style="color:#fff"><img class="mark" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNDggNDgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJHZW9tZWRpcSI+CiAgPHBhdGggZD0iTTI0IDMgNDEuMSAxM3YyMEwyNCA0MyA2LjkgMzNWMTNaIiBmaWxsPSJub25lIiBzdHJva2U9IiMwZDZlNjMiIHN0cm9rZS13aWR0aD0iMi40IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CiAgPHBhdGggZD0iTTI0IDE0YTEwIDEwIDAgMSAwIDkuNCAxMy40SDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMwZDZlNjMiIHN0cm9rZS13aWR0aD0iMi40IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9zdmc+Cg==" alt="" style="filter:brightness(0) invert(1)"><span>Geomediq<small>Lifesciences Group</small></span></a>
+      <p class="addr" style="margin-top:1rem;max-width:30ch">A Jaipur-based life-sciences and pharma supply-chain group. Nutraceutical development and temperature-controlled warehousing.</p>
+    </div>
+    <div>
+      <h4>Divisions</h4>
+      <ul class="foot-links">
+        <li><a href="lifesciences.html">Lifesciences — nutra &amp; pharma</a></li>
+        <li><a href="warehousing.html">Warehousing — cold-chain &amp; 3PL</a></li>
+        <li><a href="#group">Why one group</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <ul class="foot-links">
+        <li><a href="mailto:geomediq@gmail.com">geomediq@gmail.com</a></li>
+        <li><a href="tel:+918829933770">+91 88299 33770</a></li>
+        <li class="addr">RIICO Sitapura, Jaipur, India</li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>© 2026 Geomediq Lifesciences. All rights reserved.</span>
+    <span>FSSAI-compliant · WHO-GMP partner facilities</span>
+  </div>
+</footer>
+
+</body>
+</html>
